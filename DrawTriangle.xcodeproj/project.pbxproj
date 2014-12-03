@@ -14,6 +14,7 @@
 		27CC91741A2F6D68007B728E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27CC91731A2F6D68007B728E /* Images.xcassets */; };
 		27CC91771A2F6D68007B728E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27CC91751A2F6D68007B728E /* LaunchScreen.xib */; };
 		27CC91831A2F6D68007B728E /* DrawTriangleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CC91821A2F6D68007B728E /* DrawTriangleTests.m */; };
+		27CC918E1A2F6D8D007B728E /* TriangleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CC918D1A2F6D8D007B728E /* TriangleView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		27CC917C1A2F6D68007B728E /* DrawTriangleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DrawTriangleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		27CC91811A2F6D68007B728E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		27CC91821A2F6D68007B728E /* DrawTriangleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawTriangleTests.m; sourceTree = "<group>"; };
+		27CC918C1A2F6D8D007B728E /* TriangleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriangleView.h; sourceTree = "<group>"; };
+		27CC918D1A2F6D8D007B728E /* TriangleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriangleView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +88,8 @@
 				27CC916B1A2F6D68007B728E /* AppDelegate.m */,
 				27CC916D1A2F6D68007B728E /* ViewController.h */,
 				27CC916E1A2F6D68007B728E /* ViewController.m */,
+				27CC918C1A2F6D8D007B728E /* TriangleView.h */,
+				27CC918D1A2F6D8D007B728E /* TriangleView.m */,
 				27CC91701A2F6D68007B728E /* Main.storyboard */,
 				27CC91731A2F6D68007B728E /* Images.xcassets */,
 				27CC91751A2F6D68007B728E /* LaunchScreen.xib */,
@@ -221,6 +226,7 @@
 			files = (
 				27CC916F1A2F6D68007B728E /* ViewController.m in Sources */,
 				27CC916C1A2F6D68007B728E /* AppDelegate.m in Sources */,
+				27CC918E1A2F6D8D007B728E /* TriangleView.m in Sources */,
 				27CC91691A2F6D68007B728E /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
