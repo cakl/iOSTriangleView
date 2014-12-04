@@ -14,5 +14,6 @@
 @property (nonatomic, strong) UIColor* playedColor;
 @property (nonatomic, strong) UIColor* wonColor;
 @property (nonatomic, strong) UIColor* lostColor;
+@property (nonatomic, strong) UIColor* lineColor;
 -(void)setState:(PlayState)state forPart:(TrianglePartType)part;
 @end

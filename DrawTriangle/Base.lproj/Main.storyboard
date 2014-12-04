@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,10 +18,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kox-ud-mCp" customClass="TriangleView">
-                                <rect key="frame" x="175" y="175" width="250" height="250"/>
+                                <rect key="frame" x="175" y="150" width="250" height="300"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="250" id="Ntw-ly-MF1"/>
                                     <constraint firstAttribute="width" constant="250" id="gAb-ip-sgp"/>
                                 </constraints>
                             </view>
@@ -29,6 +29,7 @@
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="Kox-ud-mCp" secondAttribute="centerX" id="Rh3-O4-Pi4"/>
                             <constraint firstAttribute="centerY" secondItem="Kox-ud-mCp" secondAttribute="centerY" id="box-vo-oow"/>
+                            <constraint firstItem="Kox-ud-mCp" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.5" id="fXg-ol-lxh"/>
                         </constraints>
                     </view>
                     <connections>

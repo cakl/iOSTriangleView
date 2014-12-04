@@ -23,6 +23,7 @@
         self.playedColor = [UIColor blackColor];
         self.lostColor = [UIColor redColor];
         self.wonColor = [UIColor greenColor];
+        self.lineColor = [UIColor colorWithRed:34.0/255 green:126.0/255 blue:175.0/255 alpha:1.0];
         
         TrianglePart* left = [[TrianglePart alloc] initWithTrianglePart:leftTrianglePartType playState:unplayed];
         TrianglePart* right = [[TrianglePart alloc] initWithTrianglePart:rightTrianglePartType playState:unplayed];
@@ -52,8 +53,7 @@
     
     CGFloat margin = 0.5;
     CGFloat lineWidth = 1.5;
-    UIColor* lineColor = [UIColor colorWithRed:34.0/255 green:126.0/255 blue:175.0/255 alpha:1.0];
-    //UIColor* lineColor = [UIColor whiteColor];
+    UIColor* lineColor = self.lineColor;
     
     CGPoint bottomLeft = CGPointMake(CGRectGetMinX(rect)+margin, CGRectGetMaxY(rect)-margin);
     CGPoint topMid = CGPointMake(CGRectGetMidX(rect), CGRectGetMinY(rect)+margin);

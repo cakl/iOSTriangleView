@@ -17,6 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.triangleView.wonColor = [UIColor grayColor];
     [self.triangleView setState:won forPart:leftTrianglePartType];
     [self.triangleView setState:lost forPart:rightTrianglePartType];
     // Do any additional setup after loading the view, typically from a nib.
