@@ -3,4 +3,4 @@ iOSTriangleView
 
 Test Project for an triangular UIView
 
-![alt text](http://cl.ly/image/2S2R3M1r1l3q/Image%202014-12-03%20at%209.31.11%20nachm..png "Logo Title Text 1")
+![alt text](http://f.cl.ly/items/4106320x2X0d0h191j1C/iphone6_spacegrey_side1.png "Logo Title Text 1")
