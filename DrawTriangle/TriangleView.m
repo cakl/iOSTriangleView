@@ -7,8 +7,41 @@
 //
 
 #import "TriangleView.h"
+#import "TrianglePart.h"
+
+@interface TriangleView ()
+@property (nonatomic, strong) NSDictionary* triangle;
+@end
 
 @implementation TriangleView
+
+- (instancetype)initWithCoder:(NSCoder *)coder
+{
+    self = [super initWithCoder:coder];
+    if (self) {
+        self.unplayedColor = [UIColor whiteColor];
+        self.playedColor = [UIColor blackColor];
+        self.lostColor = [UIColor redColor];
+        self.wonColor = [UIColor greenColor];
+        
+        TrianglePart* left = [[TrianglePart alloc] initWithTrianglePart:leftTrianglePartType playState:unplayed];
+        TrianglePart* right = [[TrianglePart alloc] initWithTrianglePart:rightTrianglePartType playState:unplayed];
+        TrianglePart* bottom = [[TrianglePart alloc] initWithTrianglePart:bottomTrianglePartType playState:unplayed];
+        self.triangle = @{
+                          [NSNumber numberWithInteger:leftTrianglePartType] : left,
+                          [NSNumber numberWithInteger:rightTrianglePartType] : right,
+                          [NSNumber numberWithInteger:bottomTrianglePartType] : bottom
+                          };
+    }
+    return self;
+}
+
+
+-(void)setState:(PlayState)state forPart:(TrianglePartType)part{
+    TrianglePart* changingPart = [self.triangle objectForKey:[NSNumber numberWithInteger:part]];
+    changingPart.playState = state;
+    [self setNeedsDisplay];
+}
 
 
 // Only override drawRect: if you perform custom drawing.
@@ -19,8 +52,8 @@
     
     CGFloat margin = 0.5;
     CGFloat lineWidth = 1.5;
-    //UIColor* lineColor = [UIColor colorWithRed:34.0/255 green:126.0/255 blue:175.0/255 alpha:1.0];
-    UIColor* lineColor = [UIColor whiteColor];
+    UIColor* lineColor = [UIColor colorWithRed:34.0/255 green:126.0/255 blue:175.0/255 alpha:1.0];
+    //UIColor* lineColor = [UIColor whiteColor];
     
     CGPoint bottomLeft = CGPointMake(CGRectGetMinX(rect)+margin, CGRectGetMaxY(rect)-margin);
     CGPoint topMid = CGPointMake(CGRectGetMidX(rect), CGRectGetMinY(rect)+margin);
@@ -29,6 +62,10 @@
     CGFloat centroidY = 0.3333 * (bottomLeft.y+topMid.y+bottomRigh.y);
     CGPoint centroid = CGPointMake(centroidX, centroidY);
     
+    
+    //left triangle
+    TrianglePart* leftTriangle = [self.triangle objectForKey:[NSNumber numberWithInteger:leftTrianglePartType]];
+    UIColor* leftTriangleCurrentColor = [self colorByState:leftTriangle.playState];
     CGContextBeginPath(ctx);
     CGContextSetLineWidth(ctx, lineWidth);
     CGContextSetStrokeColorWithColor(ctx, lineColor.CGColor);
@@ -36,9 +73,12 @@
     CGContextAddLineToPoint(ctx, centroid.x, centroid.y);
     CGContextAddLineToPoint(ctx, topMid.x, topMid.y);
     CGContextClosePath(ctx);
-    CGContextSetRGBFillColor(ctx, 34.0/255, 192.0/255, 171.0/255, 1);
+    CGContextSetFillColorWithColor(ctx, leftTriangleCurrentColor.CGColor);
     CGContextDrawPath(ctx, kCGPathFillStroke);
     
+    //right triangle
+    TrianglePart* rightTriangle = [self.triangle objectForKey:[NSNumber numberWithInteger:rightTrianglePartType]];
+    UIColor* rightTriangleCurrentColor = [self colorByState:rightTriangle.playState];
     CGContextBeginPath(ctx);
     CGContextSetLineWidth(ctx, lineWidth);
     CGContextSetStrokeColorWithColor(ctx, lineColor.CGColor);
@@ -46,9 +86,12 @@
     CGContextAddLineToPoint(ctx, centroidX, centroidY);
     CGContextAddLineToPoint(ctx, bottomRigh.x, bottomRigh.y);
     CGContextClosePath(ctx);
-    CGContextSetRGBFillColor(ctx, 34.0/255, 192.0/255, 171.0/255, 1);
+    CGContextSetFillColorWithColor(ctx, rightTriangleCurrentColor.CGColor);
     CGContextDrawPath(ctx, kCGPathFillStroke);
     
+    //bottom triangle
+    TrianglePart* bottomTriangle = [self.triangle objectForKey:[NSNumber numberWithInteger:bottomTrianglePartType]];
+    UIColor* bottomTriangleCurrentColor = [self colorByState:bottomTriangle.playState];
     CGContextBeginPath(ctx);
     CGContextSetLineWidth(ctx, lineWidth);
     CGContextSetStrokeColorWithColor(ctx, lineColor.CGColor);
@@ -56,9 +99,29 @@
     CGContextAddLineToPoint(ctx, centroidX, centroidY);
     CGContextAddLineToPoint(ctx, bottomLeft.x, bottomLeft.y);
     CGContextClosePath(ctx);
-    CGContextSetRGBFillColor(ctx, 0, 0, 0, 1);
+    CGContextSetFillColorWithColor(ctx, bottomTriangleCurrentColor.CGColor);
     CGContextDrawPath(ctx, kCGPathFillStroke);
     
+}
+
+-(UIColor*)colorByState:(PlayState)state{
+    switch (state) {
+        case unplayed:
+            return self.unplayedColor;
+            break;
+        case played:
+            return self.playedColor;
+            break;
+        case lost:
+            return self.lostColor;
+            break;
+        case won:
+            return self.wonColor;
+            break;
+        default:
+            return self.unplayedColor;
+            break;
+    }
 }
 
 

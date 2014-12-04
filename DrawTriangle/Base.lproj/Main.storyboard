@@ -31,6 +31,9 @@
                             <constraint firstAttribute="centerY" secondItem="Kox-ud-mCp" secondAttribute="centerY" id="box-vo-oow"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="triangleView" destination="Kox-ud-mCp" id="rL5-nk-0RF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

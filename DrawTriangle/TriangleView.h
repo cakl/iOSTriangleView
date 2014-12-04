@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TrianglePart.h"
 
 @interface TriangleView : UIView
-
+@property (nonatomic, strong) UIColor* unplayedColor;
+@property (nonatomic, strong) UIColor* playedColor;
+@property (nonatomic, strong) UIColor* wonColor;
+@property (nonatomic, strong) UIColor* lostColor;
+-(void)setState:(PlayState)state forPart:(TrianglePartType)part;
 @end
