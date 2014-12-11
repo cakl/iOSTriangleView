@@ -23,7 +23,6 @@
         self.playedColor = [UIColor blackColor];
         self.lostColor = [UIColor redColor];
         self.wonColor = [UIColor greenColor];
-        self.lineColor = [UIColor colorWithRed:34.0/255 green:126.0/255 blue:175.0/255 alpha:1.0];
         
         TrianglePart* left = [[TrianglePart alloc] initWithTrianglePart:leftTrianglePartType playState:unplayed];
         TrianglePart* right = [[TrianglePart alloc] initWithTrianglePart:rightTrianglePartType playState:unplayed];
@@ -48,7 +47,8 @@
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
-
+    self.lineColor = self.superview.backgroundColor;
+    
     CGContextRef ctx = UIGraphicsGetCurrentContext();
     
     CGFloat margin = 0.5;
